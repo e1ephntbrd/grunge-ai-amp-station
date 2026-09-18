@@ -34,15 +34,17 @@ A retro-styled web application that combines neural network melody generation (M
 ### 1. Prerequisites & Dependencies
 Ensure you have Python installed along with FluidSynth and required audio libraries.
 
-{codeStart}bash
+```
+bash
 pip install -r requirements.txt
-{codeEnd}
+```
 
 ### 2. Run the Application
 
-{codeStart}bash
+```
+bash
 python main.py
-{codeEnd}
+```
 
 Open your browser and navigate to `http://localhost:8000` to fire up the amp.
 
@@ -50,7 +52,8 @@ Open your browser and navigate to `http://localhost:8000` to fire up the amp.
 
 ## 📂 Project Structure
 
-{codeStart}text
+```
+text
 grunge-ai-amp-station/
 │
 ├── static/
@@ -60,7 +63,7 @@ grunge-ai-amp-station/
 │   └── index.html    # Main interface markup
 ├── main.py           # FastAPI server & route handlers
 └── requirements.txt  # Python dependencies
-{codeEnd}
+```
 
 ---
 
