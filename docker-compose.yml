@@ -6,3 +6,5 @@ services:
     container_name: grunge_synth_container
     ports:
       - "8000:8000"
+    volumes:
+      - .:/app

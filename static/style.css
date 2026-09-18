@@ -1,0 +1,288 @@
+body {
+    /* Темний вінтажний фон із зернистою текстурою тканини */
+    background-color: #0b0a09;
+    background-image:
+        radial-gradient(rgba(255, 255, 255, 0.02) 15%, transparent 16%),
+        radial-gradient(rgba(0, 0, 0, 0.7) 15%, transparent 16%),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.15) 2px, rgba(0, 0, 0, 0.15) 4px);
+    background-size: 8px 8px, 8px 8px, 100% 4px;
+    color: #d1d1d1;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    /* Корпус кабінета з вираженою текстурою старої мешковини */
+    background-color: #161310;
+    background-image:
+        radial-gradient(rgba(255, 255, 255, 0.04) 20%, transparent 21%),
+        radial-gradient(rgba(0, 0, 0, 0.8) 20%, transparent 21%),
+        linear-gradient(135deg, rgba(40, 30, 20, 0.4) 0%, rgba(10, 8, 6, 0.8) 100%);
+    background-size: 6px 6px, 6px 6px, 100% 100%;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.08);
+    width: 540px;
+    border: 3px solid #2b221b;
+}
+
+h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    /* Тьмяний випалений колір замість кислотно-яскравого */
+    color: #8c2a0d;
+    /* Ефект клейма: світлий відблиск знизу + темна вдавленість зверху */
+    text-shadow:
+        0 1px 1px rgba(255, 255, 255, 0.08),
+        0 -1px 2px rgba(0, 0, 0, 0.9);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Гітарний кабінет (голова підсилювача) */
+.amp-cabinet {
+    /* Захисна тканинна решітка (Grille Cloth) у стилі старих гітарних комбіків */
+    background-color: #1c1714;
+    background-image:
+        linear-gradient(45deg, #120f0d 25%, transparent 25%),
+        linear-gradient(-45deg, #120f0d 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #120f0d 75%),
+        linear-gradient(-45deg, transparent 75%, #120f0d 75%);
+    background-size: 5px 5px;
+    border: 5px solid #241d18;
+    border-radius: 6px;
+    padding: 18px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 35px rgba(0,0,0,0.95), 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.amp-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0d0c0b;
+    border: 2px solid #2b221b;
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.9);
+}
+
+.brand-logo {
+    font-weight: bold;
+    color: #7a240a;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    /* Аналогічний ефект клейма для логотипа на панелі */
+    text-shadow:
+        0 1px 1px rgba(255, 255, 255, 0.07),
+        0 -1px 1px rgba(0, 0, 0, 0.95);
+}
+
+/* Панель аналогових крутилок */
+.knobs {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.knob-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 9px;
+    color: #888;
+}
+
+.knob-control label {
+    margin-top: 6px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #ff5722;
+}
+
+.knob-container {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+}
+
+.amp-knob {
+    width: 38px;
+    height: 38px;
+    background: radial-gradient(circle, #2c2c2c 0%, #111 75%, #050505 100%);
+    border-radius: 50%;
+    border: 2px solid #555;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.8), inset 0 2px 3px rgba(255,255,255,0.2);
+    transition: transform 0.05s ease;
+}
+
+.amp-knob::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    width: 3px;
+    height: 10px;
+    background-color: #ff4500;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    box-shadow: 0 0 6px #ff4500;
+}
+
+.knob-control input[type="range"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 5;
+    margin: 0;
+}
+
+/* Екран осцилографа з ефектом CRT-монітора */
+.oscilloscope-screen {
+    background: #020f02;
+    border: 3px inset #152e15;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0,255,0,0.2);
+}
+
+.oscilloscope-screen::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%);
+    background-size: 100% 4px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+#oscilloscope {
+    width: 100%;
+    height: 110px;
+    display: block;
+}
+
+p {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+/* Клавіші піаніно / гітарні лади */
+.piano {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin: 15px 0;
+}
+
+.key {
+    width: 52px;
+    height: 85px;
+    background: linear-gradient(to bottom, #dedede 0%, #bcbcbc 100%);
+    color: #111;
+    border: 1px solid #777;
+    border-radius: 0 0 4px 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.06s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+}
+
+.key:hover:not(:disabled) {
+    background: linear-gradient(to bottom, #fff 0%, #dcdcdc 100%);
+}
+
+.key.active {
+    background: #ff3e3e !important;
+    color: #fff;
+    transform: translateY(3px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.key:disabled, button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Панель керування кнопками */
+.controls-panel {
+    display: flex;
+    gap: 10px;
+}
+
+#jam-btn {
+    background: linear-gradient(135deg, #ff4500 0%, #c43200 100%);
+    color: white;
+    border: 1px solid #ff6a33;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 2;
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 12px rgba(196,50,0,0.4);
+    transition: 0.1s;
+    text-transform: uppercase;
+}
+
+#jam-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #ff5722 0%, #d83a00 100%);
+    box-shadow: 0 6px 16px rgba(196,50,0,0.6);
+    transform: translateY(-1px);
+}
+
+#jam-btn:active:not(:disabled) {
+    transform: translateY(2px);
+}
+
+#stop-btn {
+    background: linear-gradient(135deg, #3a3330 0%, #1f1b19 100%);
+    color: #ff5722;
+    border: 1px solid #55453f;
+    padding: 12px 15px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 1;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    transition: 0.1s;
+    text-transform: uppercase;
+}
+
+#stop-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #48403c 0%, #2a2522 100%);
+    color: #ff6d00;
+    border-color: #775f56;
+}
+
+#stop-btn:active:not(:disabled) {
+    transform: translateY(2px);
+}
+
+#status {
+    margin-top: 14px;
+    font-size: 11px;
+    color: #777;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}

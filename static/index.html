@@ -3,68 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grunge Amp Station</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <title>AI Grunge Jam Generator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <h1>AI Grunge Jam Generator</h1>
 
-<div class="amp-container">
-    <div class="amp-header">
-        <div class="brand-logo">GARAGE-60W</div>
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <span>RAT DISTORTION</span>
-            <div id="pedal-lamp" class="status-lamp"></div>
+        <div class="amp-cabinet">
+            <div class="amp-panel">
+                <span class="brand-logo">MUD-AMP 90</span>
+                <div class="knobs">
+                    <div class="knob-control">
+                        <div class="knob-container">
+                            <div class="amp-knob" id="knob-gain"></div>
+                            <input type="range" id="gain-slider" min="1" max="30" step="0.5" value="18">
+                        </div>
+                        <label>GAIN</label>
+                    </div>
+                    <div class="knob-control">
+                        <div class="knob-container">
+                            <div class="amp-knob" id="knob-reverb"></div>
+                            <input type="range" id="reverb-slider" min="0" max="1" step="0.05" value="0.3">
+                        </div>
+                        <label>REVERB</label>
+                    </div>
+                    <div class="knob-control">
+                        <div class="knob-container">
+                            <div class="amp-knob" id="knob-tone"></div>
+                            <input type="range" id="tone-slider" min="500" max="8000" step="100" value="3000">
+                        </div>
+                        <label>TONE</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="oscilloscope-screen">
+                <canvas id="oscilloscope"></canvas>
+            </div>
         </div>
+
+        <p>Оберіть ноти для AI-соло та гранж-ритму:</p>
+
+        <div class="piano">
+            <button class="key" data-note="C3">C3</button>
+            <button class="key" data-note="D3">D3</button>
+            <button class="key" data-note="E3">E3</button>
+            <button class="key" data-note="F3">F3</button>
+            <button class="key" data-note="G3">G3</button>
+            <button class="key" data-note="A3">A3</button>
+            <button class="key" data-note="B3">B3</button>
+        </div>
+
+        <div class="controls-panel">
+            <button id="jam-btn">🎸 ЗАПУСТИТИ ДЖЕМ</button>
+            <button id="stop-btn">STOP / RESET</button>
+        </div>
+
+        <div id="status">ГОТОВИЙ ДО РОБОТИ</div>
+
+        <audio id="audio-player" style="display: none;"></audio>
     </div>
 
-    <div class="speaker-grill">
-        <!-- Canvas Осцилограф -->
-        <div class="visualizer-container">
-            <canvas id="waveform"></canvas>
-        </div>
-
-        <!-- Клавіатура -->
-        <div class="keyboard" id="keyboard">
-            <div class="key" data-note="E3">E3</div>
-            <div class="key" data-note="G3">G3</div>
-            <div class="key" data-note="A3">A3</div>
-            <div class="key" data-note="Bb3">A#3</div>
-            <div class="key" data-note="B3">B3</div>
-            <div class="key" data-note="D4">D4</div>
-            <div class="key" data-note="E4">E4</div>
-        </div>
-
-        <!-- Повзунки гучності -->
-        <div class="knobs-panel">
-            <div class="knob-container">
-                <span class="knob-label">SOLO VOL</span>
-                <input type="range" id="vol-solo" class="volume-slider" min="-30" max="6" value="0">
-            </div>
-            <div class="knob-container">
-                <span class="knob-label">RHYTHM VOL</span>
-                <input type="range" id="vol-rhythm" class="volume-slider" min="-30" max="6" value="0">
-            </div>
-        </div>
-
-        <!-- Педаль та кнопка запуску/зупинки -->
-        <div class="controls">
-            <div class="pedal" id="pedal-toggle">
-                <div class="pedal-title">RAT DISTORTION</div>
-                <small id="pedal-status" style="color: #aaa;">[ OFF ]</small>
-            </div>
-
-            <div style="display: flex; gap: 12px;">
-                <button class="btn-action" id="btn-jam">JAM WITH AI</button>
-                <button class="btn-action btn-stop" id="btn-stop">STOP</button>
-            </div>
-        </div>
-
-        <div class="display-info" id="status-text">Оберіть 2-3 ноти та натисніть JAM WITH AI</div>
-    </div>
-</div>
-
-<script src="/static/js/main.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
